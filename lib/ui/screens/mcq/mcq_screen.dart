@@ -86,7 +86,12 @@ class _MCQScreenState extends State<MCQScreen> {
                   const SizedBox(
                     width: 8.0,
                   ),
-                  Text(_user.name),
+                  Expanded(
+                    child: Text(
+                      _user.name,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               );
             case UserLoadingError:

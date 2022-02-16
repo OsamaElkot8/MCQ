@@ -72,9 +72,11 @@ class MCQResultScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20.0,
                 ),
-                Text(
-                  _user.name,
-                  style: _textTheme.headline2,
+                Expanded(
+                  child: Text(
+                    _user.name,
+                    style: _textTheme.headline2,
+                  ),
                 )
               ],
             );
