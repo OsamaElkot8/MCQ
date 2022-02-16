@@ -30,6 +30,11 @@ class UiConstants {
       fontSize: 16.0,
       fontFamily: 'WorkSans',
       fontWeight: FontWeight.bold);
+  static const TextStyle textStyleDefaultTextTitle3 = TextStyle(
+      color: colorPrimary,
+      fontSize: 16.0,
+      fontFamily: 'WorkSans',
+      fontWeight: FontWeight.bold);
   static const TextStyle textStyleDefaultSubtitle = TextStyle(
       color: colorGrey,
       fontSize: 12.0,
@@ -43,7 +48,7 @@ class UiConstants {
   static const InputBorder inoutBorderDefaultTextField = OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(30.0)),
     borderSide: BorderSide(
-      color: colorGrey,
+      color: colorPrimary,
       width: 1.0,
     ),
   );
@@ -77,8 +82,12 @@ class UiConstants {
   static const Size sizeMinimumButton = Size(100.0, 42.0);
 
   static const double elevationDefaultTextButton = 8.0;
+  static const double elevationDisabledTextButton = 0.0;
   static const double elevationDefaultWhiteAppBar = 0.0;
 
   static const String stringEmpty = '';
+  static const String stringSpace = ' ';
   static const String stringExclamationMark = '!';
+  static const String stringColonSymbol = ':';
+  static const String stringNewLine = '\n';
 }

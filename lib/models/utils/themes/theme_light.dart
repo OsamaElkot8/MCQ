@@ -6,7 +6,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   colorScheme: const ColorScheme.light(
       primary: UiConstants.colorPrimary,
       secondary: UiConstants.colorGrey,
-      onPrimary: UiConstants.colorBlack,
+      onSecondary: UiConstants.colorLightGrey,
       background: UiConstants.colorWhite),
   primaryColor: UiConstants.colorPrimary,
   textTheme: TextTheme(
@@ -16,8 +16,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
       headline2: UiConstants.textStyleHomeSearchTitle
           .copyWith(color: UiConstants.colorPrimary),
       headline3: UiConstants.textStyleDefaultTextTitle,
-      headline4: UiConstants.textStyleDefaultTextTitle
-          .copyWith(color: UiConstants.colorGrey),
+      headline4: UiConstants.textStyleDefaultTextTitle3,
       subtitle1: UiConstants.textStyleDefaultSubtitle,
       button: UiConstants.textStyleDefaultButtonText),
   inputDecorationTheme: InputDecorationTheme(

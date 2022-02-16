@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mcq/models/bloc/user_bloc/user_bloc.dart';
 import 'package:mcq/models/bloc/user_bloc/user_bloc_state.dart';
 import 'package:mcq/repository/local/dummy/question_brain.dart';
+import 'package:mcq/ui/components/custom_single_child_scroll_view.dart';
+import 'package:mcq/ui/screens/mcq/mcq_result_screen.dart';
 import 'package:mcq/ui/ui_helper.dart';
 
 class MCQScreen extends StatefulWidget {
@@ -32,20 +34,22 @@ class _MCQScreenState extends State<MCQScreen> {
     return Scaffold(
         appBar: _appBar(context),
         body: SafeArea(
-          child: Padding(
+          child: CustomSingleChildScrollView(
             padding: _screenPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
-                  child: SingleChildScrollView(
-                    child: _questionView(),
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: _questionView(),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 20.0,
                 ),
-                _choicesView()
+                _choicesView(context)
               ],
             ),
           ),
@@ -53,13 +57,12 @@ class _MCQScreenState extends State<MCQScreen> {
   }
 
   AppBar _appBar(BuildContext context) {
-    const EdgeInsetsGeometry _profileImageCircleAvatarPadding =
-        EdgeInsets.all(8.0);
-    const double _appBarTitleSpacing = 0.0;
+    const bool _appBarCenterTitle = false;
     const double _profileImageCircleAvatarRadius = 20.0;
     final ColorScheme _colorScheme = UIHelper.getColorScheme(context);
 
     return AppBar(
+      centerTitle: _appBarCenterTitle,
       title: BlocBuilder<UserBloc, UserBlocState>(
         builder: (context, state) {
           switch (state.runtimeType) {
@@ -69,25 +72,29 @@ class _MCQScreenState extends State<MCQScreen> {
               final casted = state as UserLoaded;
               final _user = casted.user;
 
-              return Text(_user.name);
+              return Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircleAvatar(
+                    radius: _profileImageCircleAvatarRadius,
+                    backgroundColor: _colorScheme.background,
+                    child: Icon(
+                      Icons.person,
+                      color: _colorScheme.secondary,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  Text(_user.name),
+                ],
+              );
             case UserLoadingError:
             default:
               final casted = state as UserLoadingError;
               return Text(casted.reason!);
           }
         },
-      ),
-      titleSpacing: _appBarTitleSpacing,
-      leading: Padding(
-        padding: _profileImageCircleAvatarPadding,
-        child: CircleAvatar(
-          radius: _profileImageCircleAvatarRadius,
-          backgroundColor: _colorScheme.background,
-          child: Icon(
-            Icons.person,
-            color: _colorScheme.secondary,
-          ),
-        ),
       ),
     );
   }
@@ -97,31 +104,39 @@ class _MCQScreenState extends State<MCQScreen> {
         textAlign: TextAlign.center,
       );
 
-  Widget _choicesView() {
-    const bool _listViewShrinkWrap = true;
+  Widget _choicesView(BuildContext context) {
     final List<String> _choices = _dummy.choices;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: _choices.map((choice) {
+        const EdgeInsets _buttonPadding = EdgeInsets.symmetric(vertical: 10.0);
+
+        return Padding(
+          padding: _buttonPadding,
+          child: OutlinedButton(
+            onPressed: () =>
+                _singleChoiceButtonOnPressed(context, singleChoice: choice),
+            child: Text(choice),
+          ),
+        );
+      }).toList(),
+    );
+  }
+
+  _singleChoiceButtonOnPressed(BuildContext context,
+      {required String singleChoice}) {
     final String _correctAnswer = _dummy.correctAnswer;
+    final bool _isTheCorrectAnswer = singleChoice == _correctAnswer;
 
-    return ListView.separated(
-        shrinkWrap: _listViewShrinkWrap,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (ctx, index) {
-          final String _singleChoice = _choices[index];
+    _answers.add(_isTheCorrectAnswer);
 
-          return OutlinedButton(
-              onPressed: () {
-                final bool _isTheCorrectAnswer =
-                    _singleChoice == _correctAnswer;
-                setState(() {
-                  _dummy.nextQuestion();
-                  _answers.add(_isTheCorrectAnswer);
-                });
-              },
-              child: Text(_singleChoice));
-        },
-        separatorBuilder: (ctx, index) => const SizedBox(
-              height: 20.0,
-            ),
-        itemCount: _choices.length);
+    if (_dummy.isLastQuestion) {
+      Navigator.pushReplacementNamed(context, MCQResultScreen.id,
+          arguments: _answers);
+    } else {
+      setState(() => _dummy.nextQuestion());
+    }
   }
 }

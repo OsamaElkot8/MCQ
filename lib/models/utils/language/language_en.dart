@@ -19,4 +19,16 @@ class LanguageEn extends Languages {
   @override
   // TODO: implement start
   String get start => 'Start';
+
+  @override
+  // TODO: implement yourScoreIs
+  String get yourScoreIs => 'Your Score Is';
+
+  @override
+  // TODO: implement of
+  String get of => 'Of';
+
+  @override
+  // TODO: implement tryAgain
+  String get tryAgain => 'Try Again';
 }

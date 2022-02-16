@@ -2,6 +2,9 @@ abstract class Languages {
   String get welcomeBack;
   String get name;
   String get start;
+  String get yourScoreIs;
+  String get of;
+  String get tryAgain;
 }
 
 enum EnumLanguage { english, arabic }

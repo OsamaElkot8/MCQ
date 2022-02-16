@@ -60,11 +60,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             const SizedBox(
               height: 50.0,
             ),
-            TextButton(
-                onPressed: _isStartButtonEnabled
-                    ? () => _startButtonOnPressed(context)
-                    : null,
-                child: Text(appLocalizations(context).start)),
+            _startButtonView(context),
             const SizedBox(
               height: 30.0,
             )
@@ -95,16 +91,36 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
+  Widget _startButtonView(BuildContext context) {
+    final ColorScheme _colorScheme = UIHelper.getColorScheme(context);
+
+    return TextButton(
+      onPressed:
+          _isStartButtonEnabled ? () => _startButtonOnPressed(context) : null,
+      child: Text(appLocalizations(context).start),
+      style: TextButton.styleFrom(
+          primary: _isStartButtonEnabled
+              ? _colorScheme.background
+              : _colorScheme.secondary,
+          backgroundColor: _isStartButtonEnabled
+              ? _colorScheme.primary
+              : _colorScheme.onSecondary,
+          elevation: _isStartButtonEnabled
+              ? UiConstants.elevationDefaultTextButton
+              : UiConstants.elevationDisabledTextButton),
+    );
+  }
+
   _startButtonOnPressed(BuildContext context) {
     String _name = _nameController.text;
     User _user = User(name: _name);
 
-    _updateUserData(user: _user);
+    _updateUserData(context, user: _user);
 
     Navigator.pushNamed(context, MCQScreen.id);
   }
 
-  _updateUserData({required User user}) {
+  _updateUserData(BuildContext context, {required User user}) {
     final _userBloc = context.read<UserBloc>();
     // setting updated user data
     _userBloc.add(UserEdit(user));
