@@ -1,5 +1,4 @@
 class NetworkConstants {
-  /// local development
   static const String urlBase = '';
 
   static const String keyId = 'id';

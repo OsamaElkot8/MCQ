@@ -7,10 +7,10 @@ class QuestionBrain {
   bool _isLastQuestion = false;
 
   QuestionBrain() {
-    _questions = getSystemMCQ();
+    _questions = _getSystemMCQ();
   }
 
-  List<Question> getSystemMCQ() {
+  List<Question> _getSystemMCQ() {
     return DummyConstants.questions
         .map<Question>((questionObject) => Question.fromJson(questionObject))
         .toList()
