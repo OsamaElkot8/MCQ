@@ -106,7 +106,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ? _colorScheme.primary
               : _colorScheme.onSecondary,
           elevation: _isStartButtonEnabled
-              ? UiConstants.elevationDefaultTextButton
+              ? UiConstants.elevationTextButton
               : UiConstants.elevationDisabledTextButton),
     );
   }

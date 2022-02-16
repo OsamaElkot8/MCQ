@@ -2,50 +2,48 @@ import 'package:flutter/material.dart';
 
 class UiConstants {
   static const Color colorPrimary = Color(0xff0C3A69);
-  static const Color colorBlack = Colors.black;
-  static const Color colorWhite = Colors.white;
-  static const Color colorless = Colors.transparent;
-  static const Color colorGrey = Colors.grey;
-  static const Color colorLightGrey = Color(0xffeeeeee);
+  static const Color colorSecondary = Colors.grey;
+  static const Color colorOnSecondary = Color(0xffeeeeee);
+  static const Color colorBackground = Colors.white;
 
-  static const TextStyle textStyleDefaultText =
-      TextStyle(color: colorBlack, fontFamily: 'WorkSans');
-  static const TextStyle textStyleHomeSearchTitle = TextStyle(
-      color: colorBlack,
+  static const TextStyle textStyleHeadline2 = TextStyle(
+      color: colorPrimary,
       fontSize: 30.0,
       fontFamily: 'WorkSans',
       fontWeight: FontWeight.w500);
-  static const TextStyle textStyleDefaultTextTitle = TextStyle(
-      color: colorBlack,
-      fontSize: 16.0,
+  static const TextStyle textStyleHeadline3 = TextStyle(
+      color: Colors.black,
+      fontSize: 22.0,
       fontFamily: 'WorkSans',
       fontWeight: FontWeight.bold);
-  static const TextStyle textStyleDefaultOutlinedButton = TextStyle(
+  static const TextStyle textStyleHeadline4 = TextStyle(
       color: colorPrimary,
       fontSize: 16.0,
       fontFamily: 'WorkSans',
       fontWeight: FontWeight.bold);
-  static const TextStyle textStyleDefaultTextTitle2 = TextStyle(
-      color: colorWhite,
-      fontSize: 16.0,
-      fontFamily: 'WorkSans',
-      fontWeight: FontWeight.bold);
-  static const TextStyle textStyleDefaultTextTitle3 = TextStyle(
-      color: colorPrimary,
-      fontSize: 16.0,
-      fontFamily: 'WorkSans',
-      fontWeight: FontWeight.bold);
-  static const TextStyle textStyleDefaultSubtitle = TextStyle(
-      color: colorGrey,
-      fontSize: 12.0,
-      fontFamily: 'WorkSans',
-      fontWeight: FontWeight.bold);
-  static const TextStyle textStyleDefaultTextField = TextStyle(
+  static const TextStyle textStyleBodyText2 = TextStyle(
       color: colorPrimary, fontFamily: 'WorkSans', fontWeight: FontWeight.w600);
-  static const TextStyle textStyleDefaultButtonText = TextStyle(
-      color: colorPrimary, fontFamily: 'WorkSans', fontWeight: FontWeight.bold);
+  static const TextStyle textStyleInputDecorationHintStyle = TextStyle(
+      color: colorSecondary,
+      fontFamily: 'WorkSans',
+      fontWeight: FontWeight.w600);
+  static const TextStyle textStyleAppBarTitleTextStyle = TextStyle(
+      color: colorBackground,
+      fontSize: 16.0,
+      fontFamily: 'WorkSans',
+      fontWeight: FontWeight.bold);
+  static const TextStyle textStyleTextButton = TextStyle(
+      color: colorBackground,
+      fontSize: 16.0,
+      fontFamily: 'WorkSans',
+      fontWeight: FontWeight.bold);
+  static const TextStyle textStyleOutlinedButton = TextStyle(
+      color: colorPrimary,
+      fontSize: 16.0,
+      fontFamily: 'WorkSans',
+      fontWeight: FontWeight.bold);
 
-  static const InputBorder inoutBorderDefaultTextField = OutlineInputBorder(
+  static const InputBorder inoutBorderInputDecoration = OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(30.0)),
     borderSide: BorderSide(
       color: colorPrimary,
@@ -53,37 +51,29 @@ class UiConstants {
     ),
   );
 
-  static const BorderSide borderSideDefaultOutlinedButton =
-      BorderSide(color: colorPrimary, width: 2.0);
+  static const double elevationTextButton = 8.0;
+  static const double elevationDisabledTextButton = 0.0;
 
-  static const BoxDecoration boxDecorationDefaultTabBar = BoxDecoration(
-      color: colorPrimary,
-      borderRadius: BorderRadius.all(Radius.circular(50.0)));
+  static const Radius _radiusTextButtonCorners = Radius.circular(50.0);
+  static const Radius _radiusOutlinedButtonCorners = Radius.circular(50.0);
 
-  static const OutlinedBorder outlinedBorderDefaultTextButton =
+  static const OutlinedBorder outlinedBorderTextButtonShape =
       RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(radiusDefaultButtonCorners));
-  static const OutlinedBorder outlinedBorderDefaultOutlinedButton =
+          borderRadius: BorderRadius.all(_radiusTextButtonCorners));
+  static const OutlinedBorder outlinedBorderOutlinedButtonShape =
       RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(radiusDefaultButtonCorners));
-  static const OutlinedBorder outlinedBorderDefaultBottomSheet =
-      RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              topLeft: radiusDefaultBottomSheetCorners,
-              topRight: radiusDefaultBottomSheetCorners));
+          borderRadius: BorderRadius.all(_radiusOutlinedButtonCorners));
 
-  static const Radius radiusDefaultBottomSheetCorners = Radius.circular(20.0);
-  static const Radius radiusDefaultButtonCorners = Radius.circular(50.0);
+  static const Size sizeMinimumTextButton = Size(100.0, 42.0);
+  static const Size sizeMinimumOutlinedButton = Size(100.0, 42.0);
 
-  static const EdgeInsets edgeInsetsDefaultPadding = EdgeInsets.all(8.0);
-  static const EdgeInsets edgeInsetsDefaultPaddingButton =
+  static const EdgeInsets edgeInsetsDefaultPaddingTextButton =
+      EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0);
+  static const EdgeInsets edgeInsetsDefaultPaddingOutlinedButton =
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0);
 
-  static const Size sizeMinimumButton = Size(100.0, 42.0);
-
-  static const double elevationDefaultTextButton = 8.0;
-  static const double elevationDisabledTextButton = 0.0;
-  static const double elevationDefaultWhiteAppBar = 0.0;
+  static const BorderSide borderSideOutlinedButtonSide =
+      BorderSide(color: colorPrimary, width: 2.0);
 
   static const String stringEmpty = '';
   static const String stringSpace = ' ';
