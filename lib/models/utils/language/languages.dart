@@ -1,5 +1,7 @@
 abstract class Languages {
-  String get test;
+  String get welcomeBack;
+  String get name;
+  String get start;
 }
 
 enum EnumLanguage { english, arabic }

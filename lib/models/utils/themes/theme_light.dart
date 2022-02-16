@@ -6,24 +6,32 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   colorScheme: const ColorScheme.light(
       primary: UiConstants.colorPrimary,
       secondary: UiConstants.colorGrey,
+      onPrimary: UiConstants.colorBlack,
       background: UiConstants.colorWhite),
   primaryColor: UiConstants.colorPrimary,
-  textTheme: const TextTheme(
+  textTheme: TextTheme(
       bodyText1: UiConstants.textStyleDefaultText,
-      headline1: UiConstants.textStyleDefaultTextTitle),
-  inputDecorationTheme: const InputDecorationTheme(
-      // border: UiConstants.inoutBorderDefaultTextField,
-      // focusedBorder: UiConstants.inoutBorderDefaultTextField,
-      // hintStyle: UiConstants.textStyleDefaultTextField
-      //     .copyWith(color: UiConstants.colorGrey),
-      ),
+      bodyText2: UiConstants.textStyleDefaultTextField,
+      headline1: UiConstants.textStyleHomeSearchTitle,
+      headline2: UiConstants.textStyleHomeSearchTitle
+          .copyWith(color: UiConstants.colorPrimary),
+      headline3: UiConstants.textStyleDefaultTextTitle,
+      headline4: UiConstants.textStyleDefaultTextTitle
+          .copyWith(color: UiConstants.colorGrey),
+      subtitle1: UiConstants.textStyleDefaultSubtitle,
+      button: UiConstants.textStyleDefaultButtonText),
+  inputDecorationTheme: InputDecorationTheme(
+    border: UiConstants.inoutBorderDefaultTextField,
+    focusedBorder: UiConstants.inoutBorderDefaultTextField,
+    hintStyle: UiConstants.textStyleDefaultTextField
+        .copyWith(color: UiConstants.colorGrey),
+  ),
   tabBarTheme: const TabBarTheme(
-      // indicator: UiConstants.boxDecorationDefaultTabBar,
-      // labelStyle: UiConstants.textStyleDefaultTextTitle,
-      // unselectedLabelStyle: UiConstants.textStyleDefaultTextTitle,
-      // unselectedLabelColor: UiConstants.colorGrey,
-      // labelPadding: UiConstants.edgeInsetsDefaultPadding
-      ),
+      indicator: UiConstants.boxDecorationDefaultTabBar,
+      labelStyle: UiConstants.textStyleDefaultTextTitle,
+      unselectedLabelStyle: UiConstants.textStyleDefaultTextTitle,
+      unselectedLabelColor: UiConstants.colorGrey,
+      labelPadding: UiConstants.edgeInsetsDefaultPadding),
   appBarTheme: const AppBarTheme(
       backgroundColor: UiConstants.colorPrimary,
       titleTextStyle: UiConstants.textStyleDefaultTextTitle2,
@@ -31,17 +39,15 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   dividerColor: UiConstants.colorGrey,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      // elevation: UiConstants.elevationDefaultTextButton,
-      backgroundColor: UiConstants.colorPrimary,
-      shape: UiConstants.outlinedBorderDefaultTextButton,
-      textStyle: UiConstants.textStyleDefaultTextTitle,
-      primary: UiConstants.colorWhite,
-      // minimumSize: UiConstants.sizeMinimumTextButton,
-      // padding: UiConstants.edgeInsetsDefaultPaddingTextButton
-    ),
+        elevation: UiConstants.elevationDefaultTextButton,
+        backgroundColor: UiConstants.colorPrimary,
+        shape: UiConstants.outlinedBorderDefaultTextButton,
+        textStyle: UiConstants.textStyleDefaultTextTitle,
+        primary: UiConstants.colorWhite,
+        minimumSize: UiConstants.sizeMinimumTextButton,
+        padding: UiConstants.edgeInsetsDefaultPaddingTextButton),
   ),
   bottomSheetTheme: const BottomSheetThemeData(
-    backgroundColor: UiConstants.colorWhite,
-    // shape: UiConstants.outlinedBorderDefaultBottomSheet
-  ),
+      backgroundColor: UiConstants.colorWhite,
+      shape: UiConstants.outlinedBorderDefaultBottomSheet),
 );
