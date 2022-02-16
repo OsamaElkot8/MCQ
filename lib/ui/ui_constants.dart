@@ -20,6 +20,11 @@ class UiConstants {
       fontSize: 16.0,
       fontFamily: 'WorkSans',
       fontWeight: FontWeight.bold);
+  static const TextStyle textStyleDefaultOutlinedButton = TextStyle(
+      color: colorPrimary,
+      fontSize: 16.0,
+      fontFamily: 'WorkSans',
+      fontWeight: FontWeight.bold);
   static const TextStyle textStyleDefaultTextTitle2 = TextStyle(
       color: colorWhite,
       fontSize: 16.0,
@@ -43,13 +48,19 @@ class UiConstants {
     ),
   );
 
+  static const BorderSide borderSideDefaultOutlinedButton =
+      BorderSide(color: colorPrimary, width: 2.0);
+
   static const BoxDecoration boxDecorationDefaultTabBar = BoxDecoration(
       color: colorPrimary,
       borderRadius: BorderRadius.all(Radius.circular(50.0)));
 
   static const OutlinedBorder outlinedBorderDefaultTextButton =
       RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(50.0)));
+          borderRadius: BorderRadius.all(radiusDefaultButtonCorners));
+  static const OutlinedBorder outlinedBorderDefaultOutlinedButton =
+      RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(radiusDefaultButtonCorners));
   static const OutlinedBorder outlinedBorderDefaultBottomSheet =
       RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -57,12 +68,13 @@ class UiConstants {
               topRight: radiusDefaultBottomSheetCorners));
 
   static const Radius radiusDefaultBottomSheetCorners = Radius.circular(20.0);
+  static const Radius radiusDefaultButtonCorners = Radius.circular(50.0);
 
   static const EdgeInsets edgeInsetsDefaultPadding = EdgeInsets.all(8.0);
-  static const EdgeInsets edgeInsetsDefaultPaddingTextButton =
+  static const EdgeInsets edgeInsetsDefaultPaddingButton =
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0);
 
-  static const Size sizeMinimumTextButton = Size(100.0, 42.0);
+  static const Size sizeMinimumButton = Size(100.0, 42.0);
 
   static const double elevationDefaultTextButton = 8.0;
   static const double elevationDefaultWhiteAppBar = 0.0;

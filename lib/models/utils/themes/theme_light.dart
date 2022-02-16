@@ -44,8 +44,18 @@ ThemeData lightTheme = ThemeData.light().copyWith(
         shape: UiConstants.outlinedBorderDefaultTextButton,
         textStyle: UiConstants.textStyleDefaultTextTitle,
         primary: UiConstants.colorWhite,
-        minimumSize: UiConstants.sizeMinimumTextButton,
-        padding: UiConstants.edgeInsetsDefaultPaddingTextButton),
+        minimumSize: UiConstants.sizeMinimumButton,
+        padding: UiConstants.edgeInsetsDefaultPaddingButton),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+        backgroundColor: UiConstants.colorWhite,
+        shape: UiConstants.outlinedBorderDefaultOutlinedButton,
+        textStyle: UiConstants.textStyleDefaultOutlinedButton,
+        primary: UiConstants.colorPrimary,
+        minimumSize: UiConstants.sizeMinimumButton,
+        padding: UiConstants.edgeInsetsDefaultPaddingButton,
+        side: UiConstants.borderSideDefaultOutlinedButton),
   ),
   bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: UiConstants.colorWhite,

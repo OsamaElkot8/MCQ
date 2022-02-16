@@ -1,13 +1,18 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mcq/main.dart';
+import 'package:mcq/models/bloc/user_bloc/user_bloc.dart';
+import 'package:mcq/models/bloc/user_bloc/user_bloc_event.dart';
+import 'package:mcq/models/entities/user/user.dart';
 import 'package:mcq/ui/components/custom_single_child_scroll_view.dart';
 import 'package:mcq/ui/components/default_textfield.dart';
+import 'package:mcq/ui/screens/mcq/mcq_screen.dart';
 import 'package:mcq/ui/ui_constants.dart';
 import 'package:mcq/ui/ui_helper.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  static const id = 'WelcomeScreen';
+  static const id = 'welcome_screen';
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -92,6 +97,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   _startButtonOnPressed(BuildContext context) {
     String _name = _nameController.text;
+    User _user = User(name: _name);
+
+    _updateUserData(user: _user);
+
+    Navigator.pushNamed(context, MCQScreen.id);
+  }
+
+  _updateUserData({required User user}) {
+    final _userBloc = context.read<UserBloc>();
+    // setting updated user data
+    _userBloc.add(UserEdit(user));
   }
 
   @override

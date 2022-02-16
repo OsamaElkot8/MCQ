@@ -9,6 +9,7 @@ import 'package:mcq/models/utils/localizations/locales_constants.dart';
 import 'package:mcq/models/utils/localizations/localizations_delegate.dart';
 import 'package:mcq/models/utils/themes/theme_dark.dart';
 import 'package:mcq/models/utils/themes/theme_light.dart';
+import 'package:mcq/ui/screens/mcq/mcq_screen.dart';
 import 'package:mcq/ui/screens/welcome_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey =
@@ -49,7 +50,10 @@ class MyApp extends StatelessWidget {
             ],
             locale: state.settings!.locale,
             initialRoute: WelcomeScreen.id,
-            routes: {WelcomeScreen.id: (context) => const WelcomeScreen()});
+            routes: {
+              WelcomeScreen.id: (context) => const WelcomeScreen(),
+              MCQScreen.id: (context) => const MCQScreen()
+            });
       }),
     );
   }
